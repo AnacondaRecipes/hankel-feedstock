@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   number: 0
-  script: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }} {{ PYTHON }} -m pip install . -vv
+  script: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }} {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
   host:
@@ -45,6 +45,10 @@ about:
   dev_url: https://github.com/steven-murray/hankel
 
 extra:
+  anaconda-services:
+    ref: https://anaconda.zendesk.com/agent/tickets/49247
+    reason: Client request
   recipe-maintainers:
+    - ianaobi
     - MuellerSeb
     - steven-murray
